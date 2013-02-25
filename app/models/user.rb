@@ -11,6 +11,10 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
 
   validates_presence_of :name
-  validates_uniqueness_of :name
+  #validates_uniqueness_of :name
+
+  validates :name, :length => { :maximum => 255 }
+  validates :email, :length => { :maximum => 255 }
+  validates :password, :length => { :maximum => 255 }
   
 end

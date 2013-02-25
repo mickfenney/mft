@@ -16,6 +16,8 @@ end
 puts 'DEFAULT USERS'
 #user = User.find_or_create_by_email :name => ENV['ADMIN_NAME'].dup, :email => ENV['ADMIN_EMAIL'].dup, :password => ENV['ADMIN_PASSWORD'].dup, :password_confirmation => ENV['ADMIN_PASSWORD'].dup
 #puts 'user: ' << user.name
+#user.confirm!
+#user.save!
 
 user = User.new(
   :name => ENV['ADMIN_NAME'].dup,
@@ -23,8 +25,29 @@ user = User.new(
   :password => ENV['ADMIN_PASSWORD'].dup,
   :password_confirmation => ENV['ADMIN_PASSWORD'].dup,
 )
+puts 'user: ' << user.name
 user.skip_confirmation!
 user.save!
-
-#user.confirm!
 user.add_role :admin
+
+user = User.new(
+  :name => 'Test User',
+  :email => 'test@example.com',
+  :password => 'testuser',
+  :password_confirmation => 'testuser',
+)
+puts 'user: ' << user.name
+user.skip_confirmation!
+user.save!
+user.add_role :user
+
+user = User.new(
+  :name => 'Docs User',
+  :email => 'docs@example.com',
+  :password => 'docsuser',
+  :password_confirmation => 'docsuser',
+)
+puts 'user: ' << user.name
+user.skip_confirmation!
+user.save!
+user.add_role :docs
