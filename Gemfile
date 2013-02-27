@@ -22,7 +22,6 @@ gem "rolify", ">= 3.2.0"
 gem "simple_form", ">= 2.0.4"
 gem "quiet_assets", ">= 1.0.1", :group => :development
 gem "figaro", ">= 0.5.3"
-gem "better_errors", ">= 0.6.0", :group => :development
 gem "binding_of_caller", ">= 0.7.1", :group => :development, :platforms => [:mri_19, :rbx]
 gem "letter_opener", ">= 1.1.0",  :group => :development
 group :development do
