@@ -27,8 +27,9 @@ user = User.new(
 )
 puts 'user: ' << user.name
 user.skip_confirmation!
-user.save!
 user.add_role :admin
+user.save!
+
 
 user = User.new(
   :name => 'Test User',
@@ -39,7 +40,6 @@ user = User.new(
 puts 'user: ' << user.name
 user.skip_confirmation!
 user.save!
-user.add_role :user
 
 user = User.new(
   :name => 'Docs User',
@@ -49,5 +49,5 @@ user = User.new(
 )
 puts 'user: ' << user.name
 user.skip_confirmation!
-user.save!
 user.add_role :docs
+user.save!

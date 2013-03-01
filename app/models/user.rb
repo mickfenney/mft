@@ -23,7 +23,9 @@ class User < ActiveRecord::Base
   private
 
     def assign_default_role
-      add_role(:user)
+      unless has_role? :admin
+        add_role(:user)
+      end
     end
 
 end
