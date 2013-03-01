@@ -3,7 +3,8 @@ class UsersController < ApplicationController
 
   def index
     authorize! :index, @user, :message => 'Not authorized as an administrator.'
-    @users = User.all
+    #@users = User.all
+    @users = User.order("created_at DESC").page(params[:page]).per_page(10)
   end
 
   def show
@@ -30,4 +31,5 @@ class UsersController < ApplicationController
       redirect_to users_path, :notice => "Can't delete yourself."
     end
   end
+
 end
