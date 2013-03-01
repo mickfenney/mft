@@ -27,3 +27,4 @@ gem "letter_opener", ">= 1.1.0",  :group => :development
 group :development do
   gem "better_errors", ">= 0.6.0" unless `hostname`.strip.downcase.match(/^rav/)
 end
+gem 'will_paginate', '> 3.0'
