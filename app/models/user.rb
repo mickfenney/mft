@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+
   rolify
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -16,5 +17,13 @@ class User < ActiveRecord::Base
   validates :name, :length => { :maximum => 255 }
   validates :email, :length => { :maximum => 255 }
   validates :password, :length => { :maximum => 255 }
+
+  after_create :assign_default_role
   
+  private
+
+    def assign_default_role
+      add_role(:user)
+    end
+
 end
