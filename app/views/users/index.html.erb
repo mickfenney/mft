@@ -1,5 +1,6 @@
 <h2>Users</h2>
-<div class="span8">
+<div class="row">
+<div class="span">
 
 <%= pagination_links(@users) %>
 
@@ -20,7 +21,7 @@
   <% @users.each do |user| %>
     <tr>
       <td><div class="middle"><%= image_tag avatar_url(user), :class => 'round' %></div></td>
-      <td><%= link_to user.name, user %></td>
+      <td id="hint"><%= link_to user.name, user, :title => [user.name, user.email].join(" - "), :'data-placement' => 'right' %></td>
       <td><%= user.email %></td>
       <td><%= user.phone %></td>
       <td><%= user.created_at.to_date %></td>
@@ -35,3 +36,8 @@
   </tbody>
 </table>
 </div>
+</div>
+
+<script>
+$("#hint a").tooltip()
+</script>
