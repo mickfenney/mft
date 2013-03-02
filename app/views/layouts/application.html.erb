@@ -9,7 +9,7 @@
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
   </head>
-  <body class="<%= controller_name %> <%= action_name %>">
+  <body class="<%= controller_name %> <%= action_name %> round">
    <header class="navbar navbar-fixed-top">
      <div class="navbar-inner">
        <div class="container">
@@ -28,7 +28,7 @@
    <container>
     <div id="main" role="main">
       <div class="container">
-        <div class="content">
+        <div class="content round">
            <div class="row">
             <div class="span12">
               <%= render 'layouts/messages' %>
