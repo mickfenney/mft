@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   validates :password, :length => { :maximum => 255 }
 
   after_create :assign_default_role
+  after_save :assign_default_role
   
   private
 
